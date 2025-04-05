@@ -69,6 +69,12 @@ NSArray * csvTypes;
     self = [super initWithAwareStudy:study
                           sensorName:SENSOR_PLUGIN_HEADPHONE_MOTION
                              storage:storage];
+    
+    
+    if (@available(iOS 14.0, *)) {
+        sensorManager = [[CMHeadphoneMotionManager alloc] init];
+    }
+    
     return self;
 }
 
@@ -107,10 +113,12 @@ NSArray * csvTypes;
     
     if (@available(iOS 14.0, *)) {
         
-        NSLog(@"%d", [NSThread isMainThread]);
+        if ([NSThread isMainThread]) {
+            if (self.isDebug) NSLog(@"[headphone_motion] the sensor is started in main-thread");
+        } else {
+            if (self.isDebug) NSLog(@"[headphone_motion] the sensor is started in NOT main-thread");
+        }
         
-        sensorManager = [[CMHeadphoneMotionManager alloc] init];
-    
         if (sensorManager.isDeviceMotionAvailable){
             [sensorManager startDeviceMotionUpdatesToQueue:NSOperationQueue.currentQueue
                                                withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
@@ -136,7 +144,7 @@ NSArray * csvTypes;
                     [data setObject:@(motion.attitude.rotationMatrix.m33) forKey:@"att_rm_m33"];
                     [data setObject:@(motion.gravity.x) forKey:@"gravity_x"];
                     [data setObject:@(motion.gravity.y) forKey:@"gravity_y"];
-                    [data setObject:@(motion.gravity.y) forKey:@"gravity_z"];
+                    [data setObject:@(motion.gravity.z) forKey:@"gravity_z"];
                     [data setObject:@(motion.heading) forKey:@"heading"];
                     [data setObject:@(motion.magneticField.field.x) forKey:@"mag_x"];
                     [data setObject:@(motion.magneticField.field.y) forKey:@"mag_y"];

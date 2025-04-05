@@ -29,8 +29,10 @@
     BaseCoreDataHandler * coreDataHandler;
     // SyncExecutor * executor;
     id<AWARESyncExecutorDelegate> executorDelegate;
-    AWAREFetchSizeAdjuster * fetchSizeAdjuster;
 }
+
+@synthesize fetchSizeAdjuster;
+@synthesize useCompactDataSyncFormat;
 
 - (instancetype)initWithStudy:(AWAREStudy *)study sensorName:(NSString *)name{
     NSLog(@"[NOTE] Please use -initWithStudy:sensorName:objectModelName:indexModelName:dbHandler:");
@@ -47,6 +49,7 @@
     self = [super initWithStudy:study sensorName:name];
     if(self != nil){
         isUploading = NO;
+        useCompactDataSyncFormat = NO;
         objectName  = objectModelName;
         syncName   = syncModelName;
         self.retryLimit   = 3;
@@ -84,7 +87,7 @@
     }
 
     [self.buffer addObjectsFromArray:dataArray];
-
+    
     if (self.saveInterval > 0 ) {
         // time based operation
         NSDate * now = [NSDate new];
@@ -286,25 +289,38 @@
             NSDate  * s = [NSDate new];
             NSArray * indexes = [private executeFetchRequest:fetchRequest error:&error];
             if (self.isDebug) NSLog(@"[%@][%@] FETCH SPEED: (%ld) New SQLite ---> %f", self.sensorName, self, indexes.count, [[NSDate new] timeIntervalSinceDate:s] );
+            if (self.isDebug) NSLog(@"[%@] FetchSize: %ld", self.sensorName, self->fetchSizeAdjuster.fetchSize );
 
             NSMutableArray * results = [@[] mutableCopy];
             if (indexes!=nil && indexes.count>0) {
                 for (NSManagedObjectModel * mom in indexes) {
+                    
                     NSArray *batchData = [mom valueForKey:@"batch_data"];
                     if (batchData != nil) {
-                        [results addObjectsFromArray:batchData];
+                        // compact format
+                        if (self.useCompactDataSyncFormat){
+                            NSMutableDictionary *resultDictionary = [NSMutableDictionary dictionary];
+                            for (NSDictionary *item in batchData) {
+                                for (NSString *key in item) {
+                                    if (![key isEqual: @"device_id"]) {
+                                        if (!resultDictionary[key]) {
+                                            resultDictionary[key] = [NSMutableArray array];
+                                        }
+                                        [resultDictionary[key] addObject:item[key]];
+                                    }
+                                }
+                            }
+                            [results addObject:resultDictionary];
+                        }else{
+                        // normal format
+                            [results addObjectsFromArray:batchData];
+                        }
                     }
+                    
                     NSNumber * timestamp = [mom valueForKey:@"timestamp"];
-                    // NSLog(@"%@",timestamp);
-                    if (timestamp!=nil) {
-                        self->tempLastUnixTimestamp = timestamp;
-                    }
+                    if (timestamp!=nil) self->tempLastUnixTimestamp = timestamp;
                 }
             }
-            
-//            if ([self.sensorName isEqualToString:@"magnetometer"]) {
-//                NSLog(@"%@",results);
-//            }
 
             if (results != nil) {
                 /// Convert an array object to json
@@ -660,5 +676,8 @@
     return count;
 }
 
+-(void)resetCancelState {
+    isCanceled = NO;
+}
 
 @end

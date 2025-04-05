@@ -1,19 +1,24 @@
 PODS:
-  - AWAREFramework (1.14.5):
-    - AWAREFramework/Core (= 1.14.5)
-  - AWAREFramework/Bluetooth (1.14.5):
+  - AWAREFramework (1.14.18):
+    - AWAREFramework/Core (= 1.14.18)
+  - AWAREFramework/Bluetooth (1.14.18):
     - AWAREFramework/Core
-  - AWAREFramework/Calendar (1.14.5):
+  - AWAREFramework/Calendar (1.14.18):
     - AWAREFramework/Core
-  - AWAREFramework/Contact (1.14.5):
+  - AWAREFramework/Contact (1.14.18):
     - AWAREFramework/Core
-  - AWAREFramework/Core (1.14.5)
-  - AWAREFramework/HealthKit (1.14.5):
+  - AWAREFramework/Core (1.14.18)
+  - AWAREFramework/HealthKit (1.14.18):
     - AWAREFramework/Core
-  - AWAREFramework/Microphone (1.14.5):
+  - AWAREFramework/Microphone (1.14.18):
     - AWAREFramework/Core
-  - AWAREFramework/MotionActivity (1.14.5):
+  - AWAREFramework/MotionActivity (1.14.18):
     - AWAREFramework/Core
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
+  - DynamicColor (5.0.1)
+  - Onboard (2.3.3)
 
 DEPENDENCIES:
   - AWAREFramework (~> 1.14.5)
@@ -23,14 +28,23 @@ DEPENDENCIES:
   - AWAREFramework/HealthKit (~> 1.14.5)
   - AWAREFramework/Microphone (~> 1.14.5)
   - AWAREFramework/MotionActivity (~> 1.14.5)
+  - DGCharts (~> 5.1.0)
+  - DynamicColor (~> 5.0.1)
+  - Onboard (~> 2.3.3)
 
 SPEC REPOS:
   trunk:
     - AWAREFramework
+    - DGCharts
+    - DynamicColor
+    - Onboard
 
 SPEC CHECKSUMS:
-  AWAREFramework: d1849fb2d986317cf82e807eebd3ac709f470c48
+  AWAREFramework: 37ddb76d1757bc21c3019de539d379d68cd16523
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
+  DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
+  Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
 
-PODFILE CHECKSUM: b0e391b6e19c3a3e608f2d99faf5d3501992830e
+PODFILE CHECKSUM: b30c0d5dc8fe125e40ad3b025da9b9b9c0186d32
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.16.2

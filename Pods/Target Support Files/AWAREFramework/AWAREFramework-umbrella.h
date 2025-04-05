@@ -240,8 +240,6 @@
 #import "EZAudioiOS.h"
 #import "EZAudioOSX.h"
 #import "EZAudioPlayer.h"
-#import "EZAudioPlot.h"
-#import "EZAudioPlotGL.h"
 #import "EZAudioUtilities.h"
 #import "EZMicrophone.h"
 #import "EZOutput.h"

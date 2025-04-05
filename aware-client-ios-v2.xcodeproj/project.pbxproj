@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		4F1B11B322286E75006F3176 /* ScatterChartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B11AD22286E74006F3176 /* ScatterChartCard.swift */; };
 		4F1B11B422286E75006F3176 /* ContextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B11AE22286E74006F3176 /* ContextCard.swift */; };
 		4F1B11B522286E75006F3176 /* BarChartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B11AF22286E74006F3176 /* BarChartCard.swift */; };
-		4F387DC229EB7FA4002D5300 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 4F387DC129EB7FA4002D5300 /* Charts */; };
 		4F387DC529EBC300002D5300 /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = 4F387DC429EBC300002D5300 /* DynamicColor */; };
 		4F387DCD29EBC5B7002D5300 /* OnboardingContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F387DC929EBC5B4002D5300 /* OnboardingContentViewController.m */; };
 		4F387DCE29EBC5B7002D5300 /* OnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F387DCB29EBC5B6002D5300 /* OnboardingViewController.m */; };
@@ -124,7 +123,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FFAC5F122356FA500FE40B0 /* HealthKit.framework in Frameworks */,
-				4F387DC229EB7FA4002D5300 /* Charts in Frameworks */,
 				4FFAC5EF2231089D00FE40B0 /* QuartzCore.framework in Frameworks */,
 				4F387DC529EBC300002D5300 /* DynamicColor in Frameworks */,
 				4FC60F4C2395E37D007740E4 /* MapKit.framework in Frameworks */,
@@ -294,7 +292,6 @@
 			);
 			name = "aware-client-ios-v2";
 			packageProductDependencies = (
-				4F387DC129EB7FA4002D5300 /* Charts */,
 				4F387DC429EBC300002D5300 /* DynamicColor */,
 			);
 			productName = "aware-client-ios-v2";
@@ -393,8 +390,8 @@
 			);
 			mainGroup = 4FFE196A2226A10B00C4715E;
 			packageReferences = (
-				4F387DC029EB7FA4002D5300 /* XCRemoteSwiftPackageReference "Charts.git" */,
-				4F387DC329EBC300002D5300 /* XCRemoteSwiftPackageReference "DynamicColor.git" */,
+				4F387DC329EBC300002D5300 /* XCRemoteSwiftPackageReference "DynamicColor" */,
+				F84D39AC2DA0F2EE0047ECCC /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 4FFE19742226A10B00C4715E /* Products */;
 			projectDirPath = "";
@@ -506,9 +503,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-aware-client-ios-v2/Pods-aware-client-ios-v2-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-aware-client-ios-v2/Pods-aware-client-ios-v2-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -545,9 +546,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-aware-client-ios-v2/Pods-aware-client-ios-v2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-aware-client-ios-v2/Pods-aware-client-ios-v2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -773,7 +778,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 77;
-				DEVELOPMENT_TEAM = FH352PYMNC;
+				DEVELOPMENT_TEAM = 389M989MN2;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "aware-client-ios-v2/Info.plist";
@@ -783,7 +788,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.14.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yuukinishiyama.app.aware-client-ios-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gporter.app.aware-client-ios-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -805,7 +810,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 77;
-				DEVELOPMENT_TEAM = FH352PYMNC;
+				DEVELOPMENT_TEAM = 389M989MN2;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "aware-client-ios-v2/Info.plist";
@@ -815,7 +820,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.14.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yuukinishiyama.app.aware-client-ios-v2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gporter.app.aware-client-ios-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "aware-client-ios-v2/Onboard/aware-client-ios-v2-Bridging-Header.h";
@@ -953,15 +958,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4F387DC029EB7FA4002D5300 /* XCRemoteSwiftPackageReference "Charts.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-		4F387DC329EBC300002D5300 /* XCRemoteSwiftPackageReference "DynamicColor.git" */ = {
+		4F387DC329EBC300002D5300 /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yannickl/DynamicColor.git";
 			requirement = {
@@ -969,17 +966,20 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F84D39AC2DA0F2EE0047ECCC /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4F387DC129EB7FA4002D5300 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F387DC029EB7FA4002D5300 /* XCRemoteSwiftPackageReference "Charts.git" */;
-			productName = Charts;
-		};
 		4F387DC429EBC300002D5300 /* DynamicColor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F387DC329EBC300002D5300 /* XCRemoteSwiftPackageReference "DynamicColor.git" */;
+			package = 4F387DC329EBC300002D5300 /* XCRemoteSwiftPackageReference "DynamicColor" */;
 			productName = DynamicColor;
 		};
 /* End XCSwiftPackageProductDependency section */

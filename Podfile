@@ -22,9 +22,9 @@ target 'aware-client-ios-v2' do
 #  pod 'AWAREFramework/Contact'       , :path => '../AWAREFramework-iOS'
 #  pod 'AWAREFramework/HealthKit'     , :path => '../AWAREFramework-iOS'
 
-#  pod 'Charts', '~> 4.1.0'
-#  pod 'Onboard', '~> 2.3.3'
-#  pod 'DynamicColor', '~> 5.0.1'
+  pod 'DGCharts', '~> 5.1.0'
+  pod 'Onboard', '~> 2.3.3'
+  pod 'DynamicColor', '~> 5.0.1'
   
   target 'aware-client-ios-v2Tests' do
     inherit! :search_paths

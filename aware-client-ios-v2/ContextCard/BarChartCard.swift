@@ -8,7 +8,7 @@
 
 import UIKit
 import AWAREFramework
-import Charts
+import DGCharts
 
 class BarChartCard: ContextCard {
 
