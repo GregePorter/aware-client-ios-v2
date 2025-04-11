@@ -10,7 +10,6 @@
 #import "EntityLocation.h"
 #import "AWAREEventLogger.h"
 
-
 NSString * const AWARE_PREFERENCES_STATUS_LOCATION_GPS = @"status_location_gps";
 NSString * const AWARE_PREFERENCES_FREQUENCY_GPS       = @"frequency_gps";
 NSString * const AWARE_PREFERENCES_MIN_GPS_ACCURACY    = @"min_gps_accuracy";
@@ -100,6 +99,12 @@ NSString * const AWARE_PREFERENCES_MIN_GPS_ACCURACY    = @"min_gps_accuracy";
 }
 
 - (BOOL)startSensor{
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:37.7749 longitude:-122.4194];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationChangedNotification"
+                                                                object:self
+                                                              userInfo:@{@"location": location}];
+    
     return [self startSensorWithInterval:interval accuracy:accuracy];
 }
 
@@ -199,12 +204,29 @@ NSString * const AWARE_PREFERENCES_MIN_GPS_ACCURACY    = @"min_gps_accuracy";
 }
 
 - (void) getGpsData: (NSTimer *) theTimer {
+    /// Get the current location data
+    // See if the current location is in the same census tract as the last location's census tract
+    // If the current census tract is different from the last tract, save the current tract
+    // If the current census tract is the same as the last one, check the timestamp
+    // If the timestamp is older than 5 minutes, send a notification
+    // Else, do nothing
+    printf("In getGPsData");
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:37.7749 longitude:-122.4194];
+    
     if (_lastLocation != nil) {
+        printf("In _lastLocation != nil");
         [self saveLocation:_lastLocation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationChangedNotification"
+                                                                    object:self
+                                                                  userInfo:@{@"location": location}];
     }else{
+        printf("In _lastLocation == nil");
         _lastLocation = [locationManager location];
         if (_lastLocation != nil) {
             [self saveLocation:_lastLocation];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationChangedNotification"
+                                                                object:self
+                                                              userInfo:@{@"location": location}];
         }
     }
 }

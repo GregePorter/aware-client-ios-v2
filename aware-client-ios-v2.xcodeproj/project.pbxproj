@@ -40,6 +40,7 @@
 		4FFE19B02226C7DC00C4715E /* ESMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE19AF2226C7DC00C4715E /* ESMViewController.swift */; };
 		4FFE19B22226D2C100C4715E /* AwareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE19B12226D2C100C4715E /* AwareTableViewCell.swift */; };
 		6751B417299E72271CA99EAA /* Pods_aware_client_ios_v2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC70354397A1A5E6C53574B /* Pods_aware_client_ios_v2Tests.framework */; };
+		F8800A9E2DA5806400E2624D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8800A9D2DA5806400E2624D /* NotificationManager.swift */; };
 		FD3C74F7F08E6CB236571130 /* Pods_aware_client_ios_v2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2037B1A5CBF8297D303D2168 /* Pods_aware_client_ios_v2UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		DEF9D4B89EF357AC1A9ECC9A /* Pods-aware-client-ios-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aware-client-ios-v2.release.xcconfig"; path = "Target Support Files/Pods-aware-client-ios-v2/Pods-aware-client-ios-v2.release.xcconfig"; sourceTree = "<group>"; };
 		DF69C50BE55C23E1E9F6FF05 /* Pods-aware-client-ios-v2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aware-client-ios-v2Tests.debug.xcconfig"; path = "Target Support Files/Pods-aware-client-ios-v2Tests/Pods-aware-client-ios-v2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB402EB089B2FB5413B6C2A4 /* Pods-aware-client-ios-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aware-client-ios-v2.debug.xcconfig"; path = "Target Support Files/Pods-aware-client-ios-v2/Pods-aware-client-ios-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		F8800A9D2DA5806400E2624D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 		4FFE19752226A10B00C4715E /* aware-client-ios-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				F8800A9D2DA5806400E2624D /* NotificationManager.swift */,
 				4F530269240FB13D008E3342 /* aware-client-ios-v2.entitlements */,
 				4FFE19762226A10B00C4715E /* AppDelegate.swift */,
 				4FFE19782226A10B00C4715E /* ViewController.swift */,
@@ -568,6 +571,7 @@
 			files = (
 				4F1B11B522286E75006F3176 /* BarChartCard.swift in Sources */,
 				4FFE19A82226A41900C4715E /* ContextCardViewController.swift in Sources */,
+				F8800A9E2DA5806400E2624D /* NotificationManager.swift in Sources */,
 				4FDA1E4A2423B51C004F891F /* ESMCard.swift in Sources */,
 				4FFE19B22226D2C100C4715E /* AwareTableViewCell.swift in Sources */,
 				4FFE19AC2226A47300C4715E /* QRCodeReaderViewController.swift in Sources */,

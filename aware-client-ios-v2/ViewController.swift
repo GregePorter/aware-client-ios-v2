@@ -8,13 +8,15 @@
 
 import UIKit
 import AWAREFramework
+import UserNotifications
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     let sensorManager = AWARESensorManager.shared()
-    
+    let notificationManager = NotificationManager()
+
     var refreshTimer:Timer?
     var refreshInterval = 0.5
     
@@ -27,10 +29,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationManager.requestPermission()
+        
+        // Register to receive location change notifications
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleLocationChange(_:)),
+            name: NSNotification.Name("LocationChangedNotification"),
+            object: nil
+        )
+
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    @objc func handleLocationChange(_ notification: Notification) {
+        // Get the location from the notification
+        print("in handleLocationChange")
+        // Schedule a notification
+        notificationManager.scheduleNotification()
+    }
+
+    deinit {
+        // Remove the observer when this view controller is deallocated
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         
         AWARECore.shared().checkCompliance(with: self, showDetail: true)

@@ -4,3 +4,4 @@
 
 #import "OnboardingViewController.h"
 #import "OnboardingContentViewController.h"
+#import "Locations.h"
