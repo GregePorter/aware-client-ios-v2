@@ -16,11 +16,11 @@ import Foundation
     }
 
     // Schedule a local notification
-    @objc public func scheduleNotification() {
+    @objc public func scheduleNotification(_ location: CLLocation) {
         if (!hasActiveNotification) {
             let content = UNMutableNotificationContent()
             content.title = "Hello!"
-            content.body = "This is a location notification."
+            content.body = "Location from notification: Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)"
             content.sound = UNNotificationSound.default
             
             // Create a trigger to send the notification immediately

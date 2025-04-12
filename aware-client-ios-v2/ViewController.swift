@@ -46,8 +46,14 @@ class ViewController: UIViewController {
     @objc func handleLocationChange(_ notification: Notification) {
         // Get the location from the notification
         print("in handleLocationChange")
-        // Schedule a notification
-        notificationManager.scheduleNotification()
+        if let location = notification.userInfo?["location"] as? CLLocation {
+            // Print the location coordinates
+            print("Location from notification: Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
+            // Schedule a notification
+            notificationManager.scheduleNotification(location)
+        } else {
+            print("Location not found in notification")
+        }
     }
 
     deinit {

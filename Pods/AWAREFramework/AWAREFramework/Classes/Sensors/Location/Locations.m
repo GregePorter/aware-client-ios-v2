@@ -99,12 +99,6 @@ NSString * const AWARE_PREFERENCES_MIN_GPS_ACCURACY    = @"min_gps_accuracy";
 }
 
 - (BOOL)startSensor{
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:37.7749 longitude:-122.4194];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationChangedNotification"
-                                                                object:self
-                                                              userInfo:@{@"location": location}];
-    
     return [self startSensorWithInterval:interval accuracy:accuracy];
 }
 
@@ -210,24 +204,14 @@ NSString * const AWARE_PREFERENCES_MIN_GPS_ACCURACY    = @"min_gps_accuracy";
     // If the current census tract is the same as the last one, check the timestamp
     // If the timestamp is older than 5 minutes, send a notification
     // Else, do nothing
-    printf("In getGPsData");
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:37.7749 longitude:-122.4194];
-    
     if (_lastLocation != nil) {
         printf("In _lastLocation != nil");
         [self saveLocation:_lastLocation];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationChangedNotification"
                                                                     object:self
-                                                                  userInfo:@{@"location": location}];
+                                                                  userInfo:@{@"location": _lastLocation}];
     }else{
-        printf("In _lastLocation == nil");
         _lastLocation = [locationManager location];
-        if (_lastLocation != nil) {
-            [self saveLocation:_lastLocation];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"LocationChangedNotification"
-                                                                object:self
-                                                              userInfo:@{@"location": location}];
-        }
     }
 }
 
