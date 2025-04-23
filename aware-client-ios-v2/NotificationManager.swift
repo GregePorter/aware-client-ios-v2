@@ -15,6 +15,10 @@ import Foundation
         }
     }
 
+    @objc public func handleLocationChange(_ location: CLLocation) {
+        print("Location: Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
+    }
+    
     // Schedule a local notification
     @objc public func scheduleNotification(_ location: CLLocation) {
         if (!hasActiveNotification) {
